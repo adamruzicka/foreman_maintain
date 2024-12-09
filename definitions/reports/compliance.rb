@@ -15,7 +15,7 @@ module Checks
             "foreman_openscap_scap_contents",
           'non_default_scap_contents':
             "foreman_openscap_scap_contents WHERE NOT original_filename LIKE 'ssg-rhel%-ds.xml'",
-          'arf_report_last_year':
+          'arf_report_older_than_year':
             "reports WHERE type = 'ForemanOpenscap::ArfReport'
                        AND reported_at < NOW() - INTERVAL '1 year'",
         }
