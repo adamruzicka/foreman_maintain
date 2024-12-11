@@ -20,7 +20,10 @@ module Checks
                        AND reported_at < NOW() - INTERVAL '1 year'",
         }
 
-        self.data = data.to_h { |k, v| ["compliance_#{k}_count", sql_count(v)] }
+        data.each do |key, value|
+          record_count!("compliance_#{key}", value)
+        end
+        # self.data = data.to_h { |k, v| ["compliance_#{k}_count", sql_count(v)] }
       end
     end
   end
